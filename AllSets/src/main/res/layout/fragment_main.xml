@@ -9,8 +9,11 @@
     tools:context=".MainActivity$PlaceholderFragment">
 
     <TextView
-        android:text="@string/hello_world"
+        android:id="@+id/myTextView01"
+        android:text="@string/str_1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_x="61px"
+        android:layout_y="69px"/>
 
 </RelativeLayout>

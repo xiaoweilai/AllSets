@@ -3,7 +3,7 @@
     android:id="@+id/widget35"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/white"
+    android:background="@color/white"
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <TextView
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/str_id"
-
+        android:textColor="@color/darkgray"
         android:layout_x="61px"
         android:layout_y="69px"
         >
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/str_pwd"
-
+        android:textColor="@color/darkgray"
         android:layout_x="61px"
         android:layout_y="158px"
         >

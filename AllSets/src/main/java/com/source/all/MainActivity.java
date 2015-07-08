@@ -6,6 +6,7 @@ import android.app.Activity;
 //import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.util.DisplayMetrics;
 
 //import android.support.v7.app.ActionBarActivity;
 //import android.support.v7.app.ActionBar;
@@ -19,17 +20,22 @@ import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
-//    private TextView mTextView01;
-    private TextView mTextView02;
+    private TextView mTextView01;
+//    private TextView mTextView02;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         /* Called when the activity is first created. */
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
         setContentView(R.layout.fragment_main);
-        mTextView02 = (TextView) findViewById(R.id.myTextView02);
-        CharSequence str_2 = getString(R.string.str_2);
-        String str_3 = "我是程序里调用Resource的";
-        mTextView02.setText(str_3 + str_2);
+        /*  必须引用android.util.DisplayMetrics */
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        String strOpt = "手机屏幕分辨率为：" +
+                dm.widthPixels + " x " + dm.heightPixels;
+
+        mTextView01 = (TextView) findViewById(R.id.myTextView01);
+        mTextView01.setText(strOpt);
     }
 }

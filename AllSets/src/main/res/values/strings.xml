@@ -19,13 +19,17 @@
 
         <string name="str_textview01">嗨！戴维</string>
         <string name="str_textview02">使用graphics.Color设定文字颜色</string>
-        -->
+
 
 
     <string name="hello">Hello World, EX03_04</string>
-    <!-- This is a comment -->
+
     <string name="app_name">EX03_04</string>
     <string name="str_1">我是Resource里的"字符串1"</string>
     <string name="str_2">"字符串2"</string>
+    -->
+
+    <string name="hello">Hello World, EX03_05</string>
+    <string name="app_name">EX03_05</string>
 
 </resources>

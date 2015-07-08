@@ -12,7 +12,7 @@
         android:layout_height="29px"
         android:layout_x="70px"
         android:layout_y="32px"
-        android:text="@string/layout1"
+        android:text="@string/act1"
         />
     <Button
         android:id="@+id/button1"
@@ -20,6 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_x="100px"
         android:layout_y="82px"
-        android:text="Go to Layout2"
+        android:text="Go to Activity2"
         />
 </AbsoluteLayout>

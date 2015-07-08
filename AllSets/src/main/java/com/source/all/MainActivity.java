@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.content.Intent;
 //import android.widget.TextView;
 //import android.util.DisplayMetrics;
 //import android.content.res.Resources;
@@ -42,8 +43,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v)
             {
-//                mTextView1.setText("Hi, EveryOne!!");
-                jumpToLayout2();
+                /* new一个Intent对象，并指定要启动的class */
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, EX03_09_1.class);
+
+                /* 调用一个新的Activity */
+                startActivity(intent);
+                /* 关闭原本的 Activity */
+                MainActivity.this.finish();
             }
 
         });

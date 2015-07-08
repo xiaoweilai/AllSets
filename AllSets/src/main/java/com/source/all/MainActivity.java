@@ -1,9 +1,9 @@
 package com.source.all;
 
 import android.app.Activity;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+//import android.content.res.Resources;
+//import android.graphics.Color;
+//import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -19,25 +19,17 @@ import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
-    private TextView mTextView01;
+//    private TextView mTextView01;
     private TextView mTextView02;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /* Called when the activity is first created. */
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
         setContentView(R.layout.fragment_main);
-
-        mTextView01 = (TextView) findViewById(R.id.myTextView01);
-        mTextView01.setText("我是应用Drawable 背景色的戴维文本");
-
-        Resources resources = getBaseContext().getResources();
-        Drawable HippoDrawable = resources.getDrawable(R.color.green);
-        mTextView01.setBackgroundDrawable(HippoDrawable);
-
-        mTextView02 = (TextView)findViewById(R.id.myTextView02);
-
-        /*  以下使用 Color.MAGENTA 指定文本的颜色为紫红色 */
-        mTextView02.setTextColor(Color.MAGENTA);
+        mTextView02 = (TextView) findViewById(R.id.myTextView02);
+        CharSequence str_2 = getString(R.string.str_2);
+        String str_3 = "我是程序里调用Resource的";
+        mTextView02.setText(str_3 + str_2);
     }
-
 }

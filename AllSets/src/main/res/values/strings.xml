@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
+
+       <string name="action_settings">Settings</string>
+
+    <!--
     <string name="app_name">AllSets</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+
+ <string name="hello_world">Hello world!</string>
     <string name="str_1">I am String 1</string>
+        <string name="str_1">I am String 1</string>
 
-    <string name="str_id">帐号</string>
-    <string name="str_pwd">密码</string>
+        <string name="str_id">帐号</string>
+        <string name="str_pwd">密码</string>
 
-    <string name="hello">Hello World, EX03_03</string>
+        <string name="hello">Hello World, EX03_03</string>
 
-    <string name="str_textview01">嗨！戴维</string>
-    <string name="str_textview02">使用graphics.Color设定文字颜色</string>
+        <string name="str_textview01">嗨！戴维</string>
+        <string name="str_textview02">使用graphics.Color设定文字颜色</string>
+        -->
+
+
+    <string name="hello">Hello World, EX03_04</string>
+    <!-- This is a comment -->
+    <string name="app_name">EX03_04</string>
+    <string name="str_1">我是Resource里的"字符串1"</string>
+    <string name="str_2">"字符串2"</string>
 
 </resources>

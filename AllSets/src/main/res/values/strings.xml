@@ -6,4 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="str_1">I am String 1</string>
 
+    <string name="str_id">帐号</string>
+    <string name="str_pwd">密码</string>
+
 </resources>

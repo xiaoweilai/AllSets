@@ -20,12 +20,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
         setContentView(R.layout.fragment_main);
-
-        mTextView01 = (TextView) findViewById(R.id.myTextView01);
-
-        String str_2 = "欢迎来到Android的TextView世界...";
-        mTextView01.setText(str_2);
-
     }
 
 }

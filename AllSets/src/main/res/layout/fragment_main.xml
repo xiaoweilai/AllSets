@@ -1,48 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout
-    android:id="@+id/widget35"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@android:color/white"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <TextView
-        android:id="@+id/widget28"
-        android:layout_width="wrap_content"
+        android:id="@+id/myTextView01"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/str_id"
-        android:textColor="@color/darkgray"
-        android:layout_x="61px"
-        android:layout_y="69px"
-        android:background="#b9ff44">
-    </TextView>
+        android:text="@string/str_textview01"
+        />
     <TextView
-        android:id="@+id/widget29"
-        android:layout_width="wrap_content"
+        android:id="@+id/myTextView02"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/str_pwd"
-        android:textColor="@color/darkgray"
-        android:layout_x="61px"
-        android:layout_y="158px"
-        android:background="@android:color/holo_purple">
-    </TextView>
-    <EditText
-        android:id="@+id/widget31"
-        android:layout_width="120dip"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_x="114px"
-        android:layout_y="57px"
-        >
-    </EditText>
-    <EditText
-        android:id="@+id/widget30"
-        android:layout_width="120dip"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:password="true"
-        android:layout_x="112px"
-        android:layout_y="142px"
-        >
-    </EditText>
-</AbsoluteLayout>
+        android:text="@string/str_textview02"
+        />
+</LinearLayout>

@@ -36,10 +36,14 @@
     <string name="app_name">EX03_06</string>
     <string name="str_text_view1">应用DavidStyleText1</string>
     <string name="str_text_view2">应用DavidStyleText2</string>
-    -->
+
     <string name="hello">Hello World, EX03_07</string>
     <string name="app_name">EX03_07</string>
     <string name="str_button1">按我</string>
+ -->
 
+    <string name="layout1">This is Layout 1!!</string>
+    <string name="layout2">This is Layout 2!!</string>
+    <string name="app_name">EX03_08</string>
 
 </resources>

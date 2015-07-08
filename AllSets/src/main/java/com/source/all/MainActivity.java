@@ -20,7 +20,7 @@ import android.util.DisplayMetrics;
 
 
 public class MainActivity extends Activity {
-    private TextView mTextView01;
+//    private TextView mTextView01;
 //    private TextView mTextView02;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +28,5 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
         setContentView(R.layout.fragment_main);
-        /*  必须引用android.util.DisplayMetrics */
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-
-        String strOpt = "手机屏幕分辨率为：" +
-                dm.widthPixels + " x " + dm.heightPixels;
-
-        mTextView01 = (TextView) findViewById(R.id.myTextView01);
-        mTextView01.setText(strOpt);
     }
 }

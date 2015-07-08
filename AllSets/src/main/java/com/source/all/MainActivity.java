@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
     private Button mButton1;
+    private Button mButton2;
     private TextView mTextView1;
     //    private TextView mTextView01;
 //    private TextView mTextView02;
@@ -35,6 +36,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.fragment_main);
 
         mButton1 = (Button)findViewById(R.id.myButton1);
+        mButton2 = (Button)findViewById(R.id.myButton2);
         mTextView1 = (TextView)findViewById(R.id.myTextView1);
 
         mButton1.setOnClickListener(new Button.OnClickListener(){
@@ -44,6 +46,14 @@ public class MainActivity extends Activity {
                 mTextView1.setText("Hi, EveryOne!!");
             }
 
+        });
+
+        mButton2.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                mTextView1.setText("Hi,David!!!!!!");
+            }
         });
 
     }

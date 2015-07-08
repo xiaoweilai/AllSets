@@ -6,20 +6,15 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-    <!-- 套用樣式1的TextView -->
     <TextView
-        style="@style/DavidStyleText1"
+        android:id="@+id/myTextView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/str_text_view1"
-        />
-    <!-- 套用樣式2的TextView -->
-    <TextView
-        style="@style/DavidStyleText2"
-        android:layout_width="fill_parent"
+        android:textColor="@color/blue"
+        android:text="@string/hello"/>
+    <Button
+        android:id="@+id/myButton1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/str_text_view2"
-        />
+        android:text="@string/str_button1" />
 </LinearLayout>

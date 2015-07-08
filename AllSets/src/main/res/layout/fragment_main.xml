@@ -3,7 +3,7 @@
     android:id="@+id/widget35"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white"
+    android:background="@android:color/white"
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <TextView
@@ -14,7 +14,7 @@
         android:textColor="@color/darkgray"
         android:layout_x="61px"
         android:layout_y="69px"
-        >
+        android:background="#b9ff44">
     </TextView>
     <TextView
         android:id="@+id/widget29"
@@ -24,7 +24,7 @@
         android:textColor="@color/darkgray"
         android:layout_x="61px"
         android:layout_y="158px"
-        >
+        android:background="@android:color/holo_purple">
     </TextView>
     <EditText
         android:id="@+id/widget31"

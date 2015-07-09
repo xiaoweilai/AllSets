@@ -45,11 +45,15 @@
     <string name="layout1">This is Layout 1!!</string>
     <string name="layout2">This is Layout 2!!</string>
     <string name="app_name">EX03_08</string>
- -->
+
 
     <string name="act1">This is Activity 1!!</string>
     <string name="act2">This is Activity 2!!</string>
     <string name="app_name">EX03_09</string>
-
+ -->
+    <string name="app_name">EX03_10</string>
+    <string name="title">计算你/妳的标准体重!</string>
+    <string name="text1">身高：</string>
+    <string name="text2">性别：</string>
 
 </resources>

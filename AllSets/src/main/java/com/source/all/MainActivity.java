@@ -48,7 +48,15 @@ public class MainActivity extends Activity {
 
                 /*  取得输入的身高 */
                 EditText et = (EditText)findViewById(R.id.height);
-                double height = Double.parseDouble(et.getText().toString());
+                double height = 0.00;
+                if(et.getText().toString().isEmpty())
+                {
+                    ;
+                }
+                else
+                {
+                    height = Double.parseDouble(et.getText().toString());
+                }
                 /* 取得性别 */
                 String sex = "";
                 RadioButton rb1 = (RadioButton)findViewById(R.id.sex1);

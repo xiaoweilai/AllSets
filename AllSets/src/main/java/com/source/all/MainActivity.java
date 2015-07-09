@@ -27,7 +27,7 @@ import android.widget.RadioButton;
 
 public class MainActivity extends Activity {
     private Button mButton1;
-    private Button mButton2;
+//    private Button mButton2;
     //    private TextView mTextView1;
     //    private TextView mTextView01;
 //    private TextView mTextView02;

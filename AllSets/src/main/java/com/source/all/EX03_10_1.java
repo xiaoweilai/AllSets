@@ -18,7 +18,7 @@ public class EX03_10_1 extends Activity{
         setContentView(R.layout.mylayout);
 
         /* 取得Intent中的Bundle对象 */
-        Bundle bundle = new Bundle();
+        Bundle bundle = this.getIntent().getExtras();
 
         /* 取得Bundle对象中的数据 */
         double height = bundle.getDouble("height");

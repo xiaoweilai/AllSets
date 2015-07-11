@@ -45,6 +45,10 @@ public class MainActivity extends Activity {
         mButton = (Button)findViewById(R.id.mybutton);
         mText = (TextView)findViewById(R.id.mytext);
 
+        /* 使用自定义的color变量来随机变换TextView的颜色 */
+        int mycolor = getResources().getColor(R.color.red);
+        mText.setTextColor(mycolor);
+
         /* 声明并构造一整数array来存储欲使用的文字颜色 */
         mColors = new int[]{Color.BLACK, Color.RED, Color.BLUE, Color.GREEN,
                 Color.MAGENTA, Color.YELLOW};

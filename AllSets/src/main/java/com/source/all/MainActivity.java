@@ -3,6 +3,7 @@ package com.source.all;
 import com.source.all.R;
 import android.app.Activity;
 /* 必须引用graphics.Typeface 才能使用creatFromAssert()来改变字体 */
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -46,6 +47,8 @@ public class MainActivity extends Activity {
         fontButton = (Button)findViewById(R.id.fontbutton);
         mText = (TextView)findViewById(R.id.mytextview);
 
+        /* 除了将字体文件放入手机中，也可以将字体以import方式导入项目资源，方法如下 ：*/
+
 
         /* 设置onClickListener与按钮对象连接  */
         sizeButton.setOnClickListener(new Button.OnClickListener()
@@ -68,10 +71,14 @@ public class MainActivity extends Activity {
                 /*  必须事先在asserts底下创建一个fonts文件夹
                 * 并放入要使用的字体文件(.ttf)
                 * 并提供相对路径给createFromAssert来创建Typeface对象 */
-
+//                assets\fonts\HandmadeTypewriter.ttf  此目录与AndroidManifetst.xml并列
                 mText.setTypeface(Typeface.createFromAsset(getAssets(),
                         "fonts/HandmadeTypewriter.ttf"));
+
+
             }
+
+
 
         });
 

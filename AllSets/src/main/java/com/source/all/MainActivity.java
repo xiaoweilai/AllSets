@@ -58,16 +58,17 @@ public class MainActivity extends Activity {
                         .setTitle(R.string.app_about)
                         .setMessage(R.string.app_about_msg)
                         .setPositiveButton
-                                (
-                                        R.string.str_ok,
-                                        new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialogInterface, int i) {
-                                                /* 在这里设计当对话框按钮单击之后要运行的事件  */
-                                            }
-                                        }
+                        (
+                                R.string.str_ok,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        /* 当“确定”按钮单击后“离开”程序  */
+                                        finish();
+                                    }
+                                }
 
-                                ).show();
+                        ).show();
             }
 
         });

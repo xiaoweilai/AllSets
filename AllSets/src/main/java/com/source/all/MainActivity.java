@@ -70,8 +70,8 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 mTextView2.setText("+");
-                String strRet = Integer.toString(Integer.parseInt(mEditText1.getText().toString()) +
-                Integer.parseInt(mEditText2.getText().toString()));
+                String strRet = Float.toString(Float.parseFloat(mEditText1.getText().toString()) +
+                Float.parseFloat(mEditText2.getText().toString()));
                 mTextView4.setText(strRet);
             }
         });
@@ -82,9 +82,9 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 mTextView2.setText("-");
-                String strRet = Integer.toString(Integer.parseInt(mEditText1.getText().toString())
+                String strRet = Float.toString(Float.parseFloat(mEditText1.getText().toString())
                         -
-                        Integer.parseInt(mEditText2.getText().toString()));
+                        Float.parseFloat(mEditText2.getText().toString()));
                 mTextView4.setText(strRet);
             }
         });
@@ -96,9 +96,9 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 mTextView2.setText("*");
-                String strRet = Integer.toString(Integer.parseInt(mEditText1.getText().toString())
+                String strRet = Float.toString(Float.parseFloat(mEditText1.getText().toString())
                         *
-                        Integer.parseInt(mEditText2.getText().toString()));
+                        Float.parseFloat(mEditText2.getText().toString()));
                 mTextView4.setText(strRet);
             }
         });
@@ -110,9 +110,9 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 mTextView2.setText("/");
-                String strRet = Integer.toString(Integer.parseInt(mEditText1.getText().toString())
+                String strRet = Float.toString(Float.parseFloat(mEditText1.getText().toString())
                         /
-                        Integer.parseInt(mEditText2.getText().toString()));
+                        Float.parseFloat(mEditText2.getText().toString()));
                 mTextView4.setText(strRet);
             }
         });

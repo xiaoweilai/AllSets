@@ -14,15 +14,16 @@
         android:text="@string/str1"
         android:textColor="@color/black"
         />
-    <!--显示密码-->
-    <EditText
-        android:id="@+id/mPassword"
-        android:layout_width="fill_parent"
-        android:layout_height="40px"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:inputType="textPassword"
-        />
+<!--显示密码-->
+<EditText
+    android:id="@+id/mPassword"
+    android:layout_width="fill_parent"
+    android:layout_height="80px"
+    android:textSize="18sp"
+    android:textColor="@color/black"
+    android:inputType="textPassword"
+    android:hint="请输入密码："
+    />
     <CheckBox
         android:id="@+id/mCheck"
         android:layout_width="wrap_content"

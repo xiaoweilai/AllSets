@@ -27,6 +27,9 @@ import android.widget.RadioButton;
 
 public class MainActivity extends Activity {
     private Button mButton1;
+    private EditText et;
+    private RadioButton rb1;
+    private RadioButton rb2;
 //    private Button mButton2;
     //    private TextView mTextView1;
     //    private TextView mTextView01;
@@ -47,7 +50,7 @@ public class MainActivity extends Activity {
             {
 
                 /*  取得输入的身高 */
-                EditText et = (EditText)findViewById(R.id.height);
+                et = (EditText)findViewById(R.id.height);
                 double height = 0.00;
                 if(et.getText().toString().isEmpty())
                 {
@@ -59,7 +62,8 @@ public class MainActivity extends Activity {
                 }
                 /* 取得性别 */
                 String sex = "";
-                RadioButton rb1 = (RadioButton)findViewById(R.id.sex1);
+                rb1 = (RadioButton)findViewById(R.id.sex1);
+                rb2 = (RadioButton)findViewById(R.id.sex2);
                 if(rb1.isChecked())
                 {
                     sex = "M";
@@ -71,7 +75,7 @@ public class MainActivity extends Activity {
 
                 /* new一个Intent对象，并指定要启动的class */
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, EX03_10_1.class);
+                intent.setClass(MainActivity.this, EX03_11_1.class);
 
                 /* new一个Bundle对象，并将要传递的数据传入 */
                 Bundle bundle = new Bundle();
@@ -80,14 +84,49 @@ public class MainActivity extends Activity {
 
                 /* 将Bundle对象assign给Intent */
                 intent.putExtras(bundle);
-                /* 调用一个新的Activity  即EX03_10_1*/
-                startActivity(intent);
+
+                /* 调用Activity,即EX03_11_1 */
+                /* startActivityForResult(intent,0),其中0为下一个Activity要返回值的依据
+                 * 可指定为自行定义的参考标识符(identifier),程序重写onActivityResult()这个
+                  * 方法，令程序在收到result后，再重新加载写回原本输入的值 */
+                startActivityForResult(intent, 0);
+//                /* 调用一个新的Activity  即EX03_10_1*/
+//                startActivity(intent);
 
 //                /* 关闭原本的 Activity */
 //                MainActivity.this.finish();
             }
 
         });
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+        switch(resultCode)
+        {
+            case RESULT_OK:
+                /* 取得来自Activity2的数据，并显示于画面上 */
+                Bundle bd = data.getExtras();
+                String sex = bd.getString("sex");
+                Double height  = bd.getDouble("height");
+
+                et.setText("" + height);
+                if(sex.equals("M"))
+                {
+                    rb1.setChecked(true);
+                }
+                else
+                {
+                    rb2.setChecked(true);
+                }
+
+                break;
+            default:
+                break;
+        }
 
     }
 }

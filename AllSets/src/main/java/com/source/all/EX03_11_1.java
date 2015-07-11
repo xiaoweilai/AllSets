@@ -5,20 +5,26 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import android.app.Activity;
 import android.os.Bundle;
+import android.content.Intent;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Button;
 
 /**
  * Created by John on 15-7-10.
  */
-public class EX03_10_1 extends Activity{
+public class EX03_11_1 extends Activity{
+    Bundle bundle;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         /* 加载mylayout.xml */
         setContentView(R.layout.mylayout);
 
-        /* 取得Intent中的Bundle对象 */
-        Bundle bundle = this.getIntent().getExtras();
+        /* 取得Intent中的bundle对象 */
+        intent = this.getIntent();
+        bundle = intent.getExtras();
 
         /* 取得Bundle对象中的数据 */
         double height = bundle.getDouble("height");
@@ -42,6 +48,22 @@ public class EX03_10_1 extends Activity{
         TextView tv1 = (TextView)findViewById(R.id.text1);
         tv1.setText("你是一位" + sexText + "\n你的身高是"
         + height + "厘米\n 你的标准体重是" + weight + "公斤");
+
+        /* 以findViewById()取得button对象，并添加onClickListener */
+        Button b1 = (Button)findViewById(R.id.button1);
+        b1.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                /* 返回result 加上一个activity */
+                EX03_11_1.this.setResult(RESULT_OK, intent);
+
+                /*结束这个activity */
+                EX03_11_1.this.finish();
+            }
+        });
+
+
     }
 
     /* 四舍五入的method */
@@ -66,5 +88,8 @@ public class EX03_10_1 extends Activity{
         }
         return weight;
     }
+
+
+
 
 }

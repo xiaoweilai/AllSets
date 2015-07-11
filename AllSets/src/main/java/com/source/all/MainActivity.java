@@ -81,7 +81,15 @@ public class MainActivity extends Activity {
                                         public void onClick(DialogInterface dialogInterface, int i) {
                                             /* 在这里处理要做的事 */
                                         }
-                                    }).show();
+                                    })
+                                    .setNegativeButton("取消吗",
+                                            new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+                                                    dialogInterface.dismiss();
+                                                }
+                                            })
+                                    .show();
                         }
                     }) //以.show()前面的)为分隔符
                     //在第二层AlertDialog里显示取消按钮

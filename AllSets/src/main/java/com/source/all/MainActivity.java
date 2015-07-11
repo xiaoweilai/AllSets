@@ -74,7 +74,8 @@ public class MainActivity extends Activity {
                 openOptionsDialog();
                 break;
             case 1:
-                finish();
+                closeOptionsDialog();
+//                finish();
                 break;
             default:
 //                finish();
@@ -86,14 +87,45 @@ public class MainActivity extends Activity {
     private void openOptionsDialog()
     {
         new AlertDialog.Builder(this)
-                .setTitle(R.string.app_about)
-                .setMessage(R.string.app_about_msg)
-                .setPositiveButton(R.string.str_ok,
+                .setTitle(R.string.app_about) //设置标题
+                .setMessage(R.string.app_about_msg)   //内容
+                .setNegativeButton(R.string.str_no,  //确认按钮后的事件
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
 
                             }
+                        })
+                .setPositiveButton(R.string.str_ok,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
+                            }
                         }).show();
     }
+
+    /* 离开程序确认对话框 */
+    private void closeOptionsDialog()
+    {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.str_exit) //设置标题
+                .setMessage(R.string.app_about_exit)   //内容
+                .setNegativeButton(R.string.str_no,  //确认按钮后的事件
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                .setPositiveButton(R.string.str_ok,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
+                            }
+                        }).show();
+    }
+
+
 }

@@ -1,8 +1,12 @@
 package com.source.all;
 
-import com.source.all.R;
+//import com.source.all.R;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -37,15 +41,6 @@ import android.widget.EditText;
 
 
 public class MainActivity extends Activity {
-    private Button mButton2;
-    private Button mButton3;
-    private Button mButton4;
-    private Button mButton5;
-    private Button mButton6;
-    private EditText mEditText1;
-    private EditText mEditText2;
-    private TextView mTextView2;
-    private TextView mTextView4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,72 +48,43 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
         setContentView(R.layout.fragment_main);
-
-        /* 以findViewById()取得所部署的Layout对象  */
-        mTextView2 = (TextView)findViewById(R.id.mTextView2);
-        mTextView4 = (TextView)findViewById(R.id.mTextView4);
-        mButton2 = (Button)findViewById(R.id.mButton2);
-        mButton3 = (Button)findViewById(R.id.mButton3);
-        mButton4 = (Button)findViewById(R.id.mButton4);
-        mButton5 = (Button)findViewById(R.id.mButton5);
-        mEditText1 = (EditText)findViewById(R.id.mText1);
-        mEditText2 = (EditText)findViewById(R.id.mText2);
-
-        //+
-        mButton2.setOnClickListener(new Button.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-                mTextView2.setText("+");
-                String strRet = Float.toString(Float.parseFloat(mEditText1.getText().toString()) +
-                Float.parseFloat(mEditText2.getText().toString()));
-                mTextView4.setText(strRet);
-            }
-        });
-
-        //-
-        mButton3.setOnClickListener(new Button.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-                mTextView2.setText("-");
-                String strRet = Float.toString(Float.parseFloat(mEditText1.getText().toString())
-                        -
-                        Float.parseFloat(mEditText2.getText().toString()));
-                mTextView4.setText(strRet);
-            }
-        });
-
-
-        //*
-        mButton4.setOnClickListener(new Button.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-                mTextView2.setText("*");
-                String strRet = Float.toString(Float.parseFloat(mEditText1.getText().toString())
-                        *
-                        Float.parseFloat(mEditText2.getText().toString()));
-                mTextView4.setText(strRet);
-            }
-        });
-
-
-        // /
-        mButton5.setOnClickListener(new Button.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-                mTextView2.setText("/");
-                String strRet = Float.toString(Float.parseFloat(mEditText1.getText().toString())
-                        /
-                        Float.parseFloat(mEditText2.getText().toString()));
-                mTextView4.setText(strRet);
-            }
-        });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0,0,0, R.string.app_about);
+        menu.add(0,1,1, R.string.str_exit);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+        switch(item.getItemId())
+        {
+            case 0:
+                openOptionsDialog();
+                break;
+            case 1:
+                finish();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
 
+    private void openOptionsDialog()
+    {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.app_about)
+                .setMessage(R.string.app_about_msg)
+                .setPositiveButton(R.string.str_ok,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
+                            }
+                        }).show();
+    }
 }

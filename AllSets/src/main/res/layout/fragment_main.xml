@@ -22,7 +22,7 @@
     android:textSize="18sp"
     android:textColor="@color/black"
     android:inputType="textPassword"
-    android:hint="请输入密码："
+    android:hint="@string/str1"
     />
     <CheckBox
         android:id="@+id/mCheck"

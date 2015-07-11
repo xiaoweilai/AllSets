@@ -50,10 +50,18 @@
     <string name="act1">This is Activity 1!!</string>
     <string name="act2">This is Activity 2!!</string>
     <string name="app_name">EX03_09</string>
- -->
+
     <string name="app_name">EX03_10</string>
     <string name="title">计算你/妳的标准体重!</string>
     <string name="text1">身高：</string>
     <string name="text2">性别：</string>
+ -->
+
+    <string name="hello">这是范例: EX03_12</string>
+    <string name="app_name">EX03_12</string>
+    <string name="str_button1">按我打开对话窗口</string>
+    <string name="app_about">重要</string>
+    <string name="app_about_msg">这是对话窗口</string>
+    <string name="str_ok">确定</string>
 
 </resources>

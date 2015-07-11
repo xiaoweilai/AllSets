@@ -1,12 +1,14 @@
 package com.source.all;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.content.Intent;
-import android.widget.EditText;
-import android.widget.RadioButton;
+//import android.content.Intent;
+//import android.widget.EditText;
+//import android.widget.RadioButton;
 //import android.widget.TextView;
 //import android.util.DisplayMetrics;
 //import android.content.res.Resources;
@@ -26,10 +28,11 @@ import android.widget.RadioButton;
 
 
 public class MainActivity extends Activity {
+    /* 先创建一个按钮 */
     private Button mButton1;
-    private EditText et;
-    private RadioButton rb1;
-    private RadioButton rb2;
+    //    private EditText et;
+//    private RadioButton rb1;
+//    private RadioButton rb2;
 //    private Button mButton2;
     //    private TextView mTextView1;
     //    private TextView mTextView01;
@@ -42,91 +45,33 @@ public class MainActivity extends Activity {
         setContentView(R.layout.fragment_main);
 
         /* 以findViewById()取得Button对象，并添加onClickListerner  */
-        mButton1 = (Button)findViewById(R.id.button1);
+        mButton1 = (Button)findViewById(R.id.myButton1);
 
-        mButton1.setOnClickListener(new Button.OnClickListener(){
+        mButton1.setOnClickListener(new Button.OnClickListener()
+        {
             @Override
             public void onClick(View v)
             {
+                //TODO Auto-generated method stub
+                /* 这里就是设置弹出对话框的地地方 */
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle(R.string.app_about)
+                        .setMessage(R.string.app_about_msg)
+                        .setPositiveButton
+                                (
+                                        R.string.str_ok,
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                /* 在这里设计当对话框按钮单击之后要运行的事件  */
+                                            }
+                                        }
 
-                /*  取得输入的身高 */
-                et = (EditText)findViewById(R.id.height);
-                double height = 0.00;
-                if(et.getText().toString().isEmpty())
-                {
-                    ;
-                }
-                else
-                {
-                    height = Double.parseDouble(et.getText().toString());
-                }
-                /* 取得性别 */
-                String sex = "";
-                rb1 = (RadioButton)findViewById(R.id.sex1);
-                rb2 = (RadioButton)findViewById(R.id.sex2);
-                if(rb1.isChecked())
-                {
-                    sex = "M";
-                }
-                else
-                {
-                    sex = "F";
-                }
-
-                /* new一个Intent对象，并指定要启动的class */
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, EX03_11_1.class);
-
-                /* new一个Bundle对象，并将要传递的数据传入 */
-                Bundle bundle = new Bundle();
-                bundle.putDouble("height", height);
-                bundle.putString("sex", sex);
-
-                /* 将Bundle对象assign给Intent */
-                intent.putExtras(bundle);
-
-                /* 调用Activity,即EX03_11_1 */
-                /* startActivityForResult(intent,0),其中0为下一个Activity要返回值的依据
-                 * 可指定为自行定义的参考标识符(identifier),程序重写onActivityResult()这个
-                  * 方法，令程序在收到result后，再重新加载写回原本输入的值 */
-                startActivityForResult(intent, 0);
-//                /* 调用一个新的Activity  即EX03_10_1*/
-//                startActivity(intent);
-
-//                /* 关闭原本的 Activity */
-//                MainActivity.this.finish();
+                                ).show();
             }
 
         });
 
     }
 
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch(resultCode)
-        {
-            case RESULT_OK:
-                /* 取得来自Activity2的数据，并显示于画面上 */
-                Bundle bd = data.getExtras();
-                String sex = bd.getString("sex");
-                Double height  = bd.getDouble("height");
-
-                et.setText("" + height);
-                if(sex.equals("M"))
-                {
-                    rb1.setChecked(true);
-                }
-                else
-                {
-                    rb2.setChecked(true);
-                }
-
-                break;
-            default:
-                break;
-        }
-
-    }
 }

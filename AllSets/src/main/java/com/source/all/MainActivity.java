@@ -52,8 +52,16 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0,0,0, R.string.app_about);
-        menu.add(0,1,1, R.string.str_exit);
+//        public abstract MenuItem add (int groupId, int itemId, int order, CharSequence title)
+//        这个是最常用的方法
+//        参数说明：
+//        groudId：是指组ID，用以批量地对菜单子项进行处理和排序
+//        itemId：是子项ID，是每一个菜单子项的唯一标识
+//        order：指定菜单子项在选项菜单中的排列顺序
+//        titler： 菜单标题
+        menu.add(0,0,1, R.string.app_about);
+        menu.add(0,1,0, R.string.str_exit);
+        menu.add(0,2,2, R.string.str_good);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -69,6 +77,7 @@ public class MainActivity extends Activity {
                 finish();
                 break;
             default:
+//                finish();
                 break;
         }
         return true;

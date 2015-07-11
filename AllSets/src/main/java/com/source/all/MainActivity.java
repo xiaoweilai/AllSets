@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
 //        setContentView(R.layout.fragment_main);
 
         Button btnButton1 = new Button(this);
-        this.setContentView(btnButton1);
+        this.setContentView(btnButton1); //按钮布满全屏幕
         btnButton1.setText(R.string.str_btn1);
 
         /* 为创建好的按钮对象，指定OnClickListerner

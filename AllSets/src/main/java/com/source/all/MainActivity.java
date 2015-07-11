@@ -1,11 +1,12 @@
 package com.source.all;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+/* 必须引用graphics.Color才能使用Color.*对象 */
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 //import android.content.Intent;
 //import android.widget.EditText;
 //import android.widget.RadioButton;
@@ -28,15 +29,11 @@ import android.widget.Button;
 
 
 public class MainActivity extends Activity {
-    /* 先创建一个按钮 */
-    private Button mButton1;
-    //    private EditText et;
-//    private RadioButton rb1;
-//    private RadioButton rb2;
-//    private Button mButton2;
-    //    private TextView mTextView1;
-    //    private TextView mTextView01;
-//    private TextView mTextView02;
+    private Button mButton;
+    private TextView mText;
+    private int[] mColors;
+    private int colornum;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         /* Called when the activity is first created. */
@@ -45,30 +42,30 @@ public class MainActivity extends Activity {
         setContentView(R.layout.fragment_main);
 
         /* 以findViewById()取得Button对象，并添加onClickListerner  */
-        mButton1 = (Button)findViewById(R.id.myButton1);
+        mButton = (Button)findViewById(R.id.mybutton);
+        mText = (TextView)findViewById(R.id.mytext);
 
-        mButton1.setOnClickListener(new Button.OnClickListener()
+        /* 声明并构造一整数array来存储欲使用的文字颜色 */
+        mColors = new int[]{Color.BLACK, Color.RED, Color.BLUE, Color.GREEN,
+                Color.MAGENTA, Color.YELLOW};
+
+        colornum = 0;
+
+        mButton.setOnClickListener(new Button.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                //TODO Auto-generated method stub
-                /* 这里就是设置弹出对话框的地地方 */
-                new AlertDialog.Builder(MainActivity.this)
-                        .setTitle(R.string.app_about)
-                        .setMessage(R.string.app_about_msg)
-                        .setPositiveButton
-                        (
-                                R.string.str_ok,
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        /* 当“确定”按钮单击后“离开”程序  */
-                                        finish();
-                                    }
-                                }
-
-                        ).show();
+                /* 使用onClick让用户点下按钮来驱动变动文本颜色 */
+                if(colornum < mColors.length)
+                {
+                    mText.setTextColor(mColors[colornum]);
+                    colornum++;
+                }
+                else
+                {
+                    colornum = 0;
+                }
             }
 
         });

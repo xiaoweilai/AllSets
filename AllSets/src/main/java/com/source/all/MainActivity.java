@@ -49,14 +49,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
 
-        /* * 套用透明背景的主题 **/
-        setTheme(R.style.Theme_Transparent);
-
-        /* * 套用布景主题1 * */
-        setTheme(R.style.Theme_Translucent);
-
-        /* * 套用布景主题2 */
-        setTheme(R.style.Theme_Translucent2);
+//        /* * 套用透明背景的主题 **/
+//        setTheme(R.style.Theme_Transparent);
+//
+//        /* * 套用布景主题1 * */
+//        setTheme(R.style.Theme_Translucent);
+//
+//        /* * 套用布景主题2 */
+//        setTheme(R.style.Theme_Translucent2);
 
 
         setContentView(R.layout.fragment_main);

@@ -76,12 +76,16 @@
     <string name="textview_str">Change me if you can !!</string>
     <string name="sizebutton_str">变大</string>
     <string name="fontbutton_str">换字体</string>
- -->
+
 
 
     <string name="hello">Hello World, EX03_15</string>
     <string name="app_name">EX03_15</string>
     <string name="str_txt1">weilai探索Android图示集</string>
+ -->
 
+
+    <string name="hello">Hello World, EX03_16</string>
+    <string name="app_name">EX03_16</string>
 
 </resources>

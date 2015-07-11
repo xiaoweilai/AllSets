@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
         public void onClick(View view) {
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle(R.string.str_alert_title) //设置标题
-                    .setItems(R.string.str_alert_body,
+                    .setItems(R.array.items_irdc_dialog,
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {

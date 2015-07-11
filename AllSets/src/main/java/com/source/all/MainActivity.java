@@ -3,6 +3,7 @@ package com.source.all;
 //import com.source.all.R;
 import android.app.Activity;
 /* 打勾显示输入的密码 */
+import android.content.res.Configuration;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 //import android.app.AlertDialog;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 //import android.view.View;
 //import android.widget.Button;
 //import android.widget.TextView;
+import android.util.DisplayMetrics;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.CheckBox;
@@ -27,7 +29,9 @@ import android.widget.CheckBox;
 //import android.widget.RadioButton;
 //import android.widget.TextView;
 //import android.util.DisplayMetrics;
-//import android.content.res.Resources;
+import android.content.res.Resources;
+
+import java.util.Locale;
 //import android.graphics.drawable.Drawable;
 
 
@@ -54,28 +58,16 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         /* Called when the activity is first created. */
         super.onCreate(savedInstanceState);
+        Resources res = getResources();
+        /* 更改语系为Japen */
+        Configuration conf =  res.getConfiguration();
+        conf.locale = Locale.JAPAN;
+        DisplayMetrics dm  = res.getDisplayMetrics();
+        /*保存语系更改 */
+        res.updateConfiguration(conf,dm);
+
 //        setContentView(R.layout.activity_main);
         setContentView(R.layout.fragment_main);
-
-        et = (EditText)findViewById(R.id.mPassword);
-        cb = (CheckBox)findViewById(R.id.mCheck);
-        /* 设置CheckBox的onCheckdChangeListener */
-        cb.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener()
-        {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(cb.isChecked())
-                {
-                    /* 设置EditText的内容为可见的 */
-                    et.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                }
-                else
-                {
-                    /* 设置EditText的内容为隐藏的 */
-                    et.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                }
-            }
-        });
     }
 
 }

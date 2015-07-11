@@ -131,13 +131,18 @@
     <string name="hello">Hello World, EX03_21</string>
     <string name="app_name">EX03_21</string>
     <string name="str_text_view1">使用主题示范\nTextView文字为深绿色\n背景套用主题。</string>
- -->
+
 
     <string name="hello">Hello World, EX03_22!</string>
     <string name="app_name">EX03_22</string>
     <string name="str1">请输入密码：</string>
     <string name="str2">显示密码</string>
+ -->
 
+    <string name="app_name">EX03_23</string>
+    <string name="str1">条条道路通罗马!</string>
+    <string name="str2">罗马不是一天造成的!</string>
+    <string name="str3">知识就是力量!</string>
 
 
 </resources>

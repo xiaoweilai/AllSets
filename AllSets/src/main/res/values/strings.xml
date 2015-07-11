@@ -97,7 +97,7 @@
     <string name="str_exit">离开</string>
     <string name="str_good">小屁孩</string>
     <string name="app_about_exit">确认退出？</string>
- -->
+
 
     <string name="hello">程序尚未开始后台执行，请按下按钮开始模拟～</string>
     <string name="app_name">EX03_18</string>
@@ -105,6 +105,13 @@
     <string name="str_dialog_title">请稍候片刻...</string>
     <string name="str_dialog_body">正在执行云运算中...</string>
     <string name="str_dialog_done">正确执行完毕！</string>
+ -->
+
+    <string name="hello">Hello World, EX03_19</string>
+    <string name="app_name">EX03_19</string>
+    <string name="str_btn1">请按下我执行程序...</string>
+    <string name="str_dialog_title">请稍候片刻...</string>
+    <string name="str_dialog_body">正在执行云运算中...</string>
 
 
 </resources>

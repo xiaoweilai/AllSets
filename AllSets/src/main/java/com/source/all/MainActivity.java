@@ -38,8 +38,9 @@ import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
-    private Button mButton1;
-    private TextView mTextView1;
+//    private Button mButton1;
+//    private TextView mTextView1;
+    /* 创建一个全局的类成员变量，类型为ProgressDialog对象 */
     public ProgressDialog myDialog = null;
 
     @Override
@@ -47,51 +48,57 @@ public class MainActivity extends Activity {
         /* Called when the activity is first created. */
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
-        setContentView(R.layout.fragment_main);
+//        setContentView(R.layout.fragment_main);
 
-        mButton1 = (Button)findViewById(R.id.myButton1);
-        mTextView1 = (TextView)findViewById(R.id.myTextView1);
-        mButton1.setOnClickListener(myShowPorgressBar);
+        Button btnButton1 = new Button(this);
+        this.setContentView(btnButton1);
+        btnButton1.setText(R.string.str_btn1);
+
+        /* 为创建好的按钮对象，指定OnClickListerner
+        * 即单击按钮会运行的事件
+        * 并在事件处理方法中显示ProgressBar */
+
+        btnButton1.setOnClickListener(myShowPorgressBar);
     }
 
+    /* 单击按钮运行的OnClickListener事件方法 */
     Button.OnClickListener myShowPorgressBar =
-            new Button.OnClickListener()
+    new Button.OnClickListener()
+    {
+        @Override
+        public void onClick(View view) {
+            final CharSequence strDialogTitle = getString(R.string.str_dialog_title);
+            final CharSequence strDialogBody = getString(R.string.str_dialog_body);
+
+                /* 显示Progress对话框 */
+            myDialog = ProgressDialog.show(
+                    MainActivity.this,
+                    strDialogTitle,
+                    strDialogBody,
+                    true
+            );
+
+            new Thread()
             {
-                @Override
-                public void onClick(View view) {
-                    final CharSequence strDialogTitle = getString(R.string.str_dialog_title);
-                    final CharSequence strDialogBody = getString(R.string.str_dialog_body);
-
-                        /* 显示Progress对话框 */
-                    myDialog = ProgressDialog.show(
-                            MainActivity.this,
-                            strDialogTitle,
-                            strDialogBody,
-                            true
-                    );
-                    mTextView1.setText(strDialogBody);
-
-                    new Thread()
+                public void run()
+                {
+                    try
                     {
-                        public void run()
-                        {
-                            try
-                            {
-                                    /* 在这里写上要后台运行的代码段
-                                    * 为了明显看见效果，以暂停3秒作为示范 */
-                                sleep(3000);
-                            }
-                            catch(Exception e)
-                            {
-                                e.printStackTrace();
-                            }
-                            finally {
-                                    /*卸载所创建的myDialog对象 */
-                                myDialog.dismiss();
-                            }
-                        }
-                    }.start();   /* 开始运行线程 */
-                } /* End:public void onClick(View arg0) */
-            };
+                            /* 在这里写上要后台运行的代码段
+                            * 为了明显看见效果，以暂停3秒作为示范 */
+                        sleep(3000);
+                    }
+                    catch(Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+                    finally {
+                            /*卸载所创建的myDialog对象 */
+                        myDialog.dismiss();
+                    }
+                }
+            }.start();   /* 开始运行线程 */
+        } /* End:public void onClick(View arg0) */
+    };
 
 }

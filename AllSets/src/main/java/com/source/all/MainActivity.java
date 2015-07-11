@@ -1,8 +1,9 @@
 package com.source.all;
 
+import com.source.all.R;
 import android.app.Activity;
-/* 必须引用graphics.Color才能使用Color.*对象 */
-import android.graphics.Color;
+/* 必须引用graphics.Typeface 才能使用creatFromAssert()来改变字体 */
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,10 +30,9 @@ import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
-    private Button mButton;
+    private Button sizeButton;
+    private Button fontButton;
     private TextView mText;
-    private int[] mColors;
-    private int colornum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,34 +42,35 @@ public class MainActivity extends Activity {
         setContentView(R.layout.fragment_main);
 
         /* 以findViewById()取得Button对象，并添加onClickListerner  */
-        mButton = (Button)findViewById(R.id.mybutton);
-        mText = (TextView)findViewById(R.id.mytext);
+        sizeButton = (Button)findViewById(R.id.sizebutton);
+        fontButton = (Button)findViewById(R.id.fontbutton);
+        mText = (TextView)findViewById(R.id.mytextview);
 
-        /* 使用自定义的color变量来随机变换TextView的颜色 */
-        int mycolor = getResources().getColor(R.color.red);
-        mText.setTextColor(mycolor);
 
-        /* 声明并构造一整数array来存储欲使用的文字颜色 */
-        mColors = new int[]{Color.BLACK, Color.RED, Color.BLUE, Color.GREEN,
-                Color.MAGENTA, Color.YELLOW};
-
-        colornum = 0;
-
-        mButton.setOnClickListener(new Button.OnClickListener()
+        /* 设置onClickListener与按钮对象连接  */
+        sizeButton.setOnClickListener(new Button.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                /* 使用onClick让用户点下按钮来驱动变动文本颜色 */
-                if(colornum < mColors.length)
-                {
-                    mText.setTextColor(mColors[colornum]);
-                    colornum++;
-                }
-                else
-                {
-                    colornum = 0;
-                }
+                /* 使用setTextSize()来改变字体大小*/
+                mText.setTextSize(20);
+            }
+
+        });
+
+        /* 设置onClickListener与按钮对象连接  */
+        fontButton.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                /*  必须事先在asserts底下创建一个fonts文件夹
+                * 并放入要使用的字体文件(.ttf)
+                * 并提供相对路径给createFromAssert来创建Typeface对象 */
+
+                mText.setTypeface(Typeface.createFromAsset(getAssets(),
+                        "fonts/HandmadeTypewriter.ttf"));
             }
 
         });

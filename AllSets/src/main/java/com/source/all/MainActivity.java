@@ -66,26 +66,34 @@ public class MainActivity extends Activity {
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle(R.string.str_alert_title) //设置标题
                     .setItems(R.array.items_irdc_dialog,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            CharSequence strDialogBody = getString(R.string.str_alert_body);
+
+                            String[] aryShop = getResources().getStringArray(R.array.items_irdc_dialog);
+                            new AlertDialog.Builder(MainActivity.this)
+                                    .setMessage(strDialogBody + aryShop[i])
+                                    .setNeutralButton(R.string.str_ok,
+                                            new DialogInterface.OnClickListener()
+                                    {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            /* 在这里处理要做的事 */
+                                        }
+                                    }).show();
+                        }
+                    }) //以.show()前面的)为分隔符
+                    //在第二层AlertDialog里显示取消按钮
+                    .setNegativeButton("取消",
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    CharSequence strDialogBody = getString(R.string.str_alert_body);
-
-                                    String[] aryShop = getResources().getStringArray(R.array.items_irdc_dialog);
-                                    new AlertDialog.Builder(MainActivity.this)
-                                            .setMessage(strDialogBody + aryShop[i])
-                                            .setNeutralButton(R.string.str_ok,
-                                                    new DialogInterface.OnClickListener() {
-                                                        @Override
-                                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                                            /* 在这里处理要做的事 */
-                                                        }
-                                                    }).show();
-
+                                    dialogInterface.dismiss();
                                 }
-                            }
-                    ).show();
-        }
+                            })
+                    .show();
+        } /* End: public void onClick(View arg0) */
     };
 
 }

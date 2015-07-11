@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
     >
+    <!--显示内容-->
     <TextView
-        android:textColor="@color/darkgreen"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/str_text_view1"
+        android:textSize="18sp"
+        android:text="@string/str1"
+        android:textColor="@color/black"
+        />
+    <!--显示密码-->
+    <EditText
+        android:id="@+id/mPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="40px"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:inputType="textPassword"
+        />
+    <CheckBox
+        android:id="@+id/mCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str2"
+        android:textColor="@color/black"
         />
 </LinearLayout>

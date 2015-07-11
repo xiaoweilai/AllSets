@@ -2,6 +2,9 @@ package com.source.all;
 
 //import com.source.all.R;
 import android.app.Activity;
+/* 打勾显示输入的密码 */
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 //import android.app.AlertDialog;
 //import android.content.DialogInterface;
 //import android.app.ProgressDialog;
@@ -9,7 +12,9 @@ import android.os.Bundle;
 //import android.view.View;
 //import android.widget.Button;
 //import android.widget.TextView;
-//import android.widget.EditText;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.CheckBox;
 ///* 欲在Layout里使用Gallery widget，必须引用这些模块 */
 //import android.content.Context;
 //import android.widget.Gallery;
@@ -40,6 +45,8 @@ import android.os.Bundle;
 public class MainActivity extends Activity {
 //    private Button mButton1;
 //    private TextView mTextView1;
+    private EditText et;
+    private CheckBox cb;
     /* 创建一个全局的类成员变量，类型为ProgressDialog对象 */
 //    public ProgressDialog myDialog = null;
 
@@ -48,22 +55,27 @@ public class MainActivity extends Activity {
         /* Called when the activity is first created. */
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
-
-//        /* * 套用透明背景的主题 **/
-//        setTheme(R.style.Theme_Transparent);
-//
-//        /* * 套用布景主题1 * */
-//        setTheme(R.style.Theme_Translucent);
-//
-//        /* * 套用布景主题2 */
-//        setTheme(R.style.Theme_Translucent2);
-
-
         setContentView(R.layout.fragment_main);
 
-//        mButton1 = (Button)findViewById(R.id.myButton1);
-//        mTextView1 = (TextView)findViewById(R.id.myTextView1);
-//        mButton1.setOnClickListener(myShowAlertDialog);
+        et = (EditText)findViewById(R.id.mPassword);
+        cb = (CheckBox)findViewById(R.id.mCheck);
+        /* 设置CheckBox的onCheckdChangeListener */
+        cb.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(cb.isChecked())
+                {
+                    /* 设置EditText的内容为可见的 */
+                    et.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else
+                {
+                    /* 设置EditText的内容为隐藏的 */
+                    et.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
     }
 
 }

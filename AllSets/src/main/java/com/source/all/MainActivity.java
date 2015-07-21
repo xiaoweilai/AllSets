@@ -2,8 +2,9 @@ package com.source.all;
 
 //import com.source.all.R;
 import android.app.Activity;
-/* 打勾显示输入的密码 */
+/* 打勾显示输入的密码  语系*/
 import android.content.res.Configuration;
+import android.util.DisplayMetrics;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 //import android.app.AlertDialog;

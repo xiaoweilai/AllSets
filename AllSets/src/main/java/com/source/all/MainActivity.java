@@ -31,9 +31,9 @@ import android.widget.EditText;
 //import android.widget.RadioButton;
 import android.widget.TextView;
 //import android.util.DisplayMetrics;
-import android.content.res.Resources;
+//import android.content.res.Resources;
 
-import java.util.Locale;
+//import java.util.Locale;
 //import android.graphics.drawable.Drawable;
 
 
@@ -72,7 +72,7 @@ public class MainActivity extends Activity {
         mEditText01 = (EditText)findViewById(R.id.myEditText);
 
         /*设定EditText用OnKeyListener事件来启动*/
-        mEditText01.setOnClickListener(new EditText.OnKeyListener()
+        mEditText01.setOnKeyListener(new EditText.OnKeyListener()
         {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {

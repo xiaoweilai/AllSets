@@ -19,6 +19,8 @@ import android.os.Bundle;
 //import android.view.View.OnFocusChangeListener;
 //import android.widget.Button;
 //import android.widget.ImageButton;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.TextView;
 //import android.util.DisplayMetrics;
 //import android.widget.CompoundButton;
@@ -144,6 +146,25 @@ public class MainActivity extends Activity {
                 }
             };
 
+
+    private CheckBox.OnTouchListener mCheckBoxTouch =
+            new CheckBox.OnTouchListener()
+            {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    //TODO Auto-generated method stub
+                    /* 判断在触控笔指压此控件的状态*/
+                    if(mCheckBox1.isChecked() == false)
+                    {
+                        /* 当触控笔放开后的动作 */
+                    }
+                    else if( mCheckBox1.isChecked() == true)
+                    {
+                        /* 当触控笔压下后的动作 */
+                    }
+                    return false;
+                }
+            };
 
 
 

@@ -102,7 +102,7 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 //TODO Auto-generated method stub
                 /* 若ImageButton状态为onClick改变ImageButton的图片 * 并改变textView的文字 */
-                mTextView1.setText("图片按钮状态为：Got Click");
+                mTextView1.setText("图片按钮状态为：Got Click！！！！");
                 mImageButton1.setImageResource(R.drawable.iconfull);
             }
         });
@@ -113,7 +113,7 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 //TODO Auto-generated method stub
                 /* 若Button状态为onClick改变ImageButton的图片 * 并改变textView的文字 */
-                mTextView1.setText("图片按钮状态为：Lost Focus");
+                mTextView1.setText("图片按钮状态为：Lost Focus！！！");
                 mImageButton1.setImageResource(R.drawable.iconempty);
             }
         });

@@ -1,44 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/widget28"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     >
+    <!--第一個TextView -->
     <TextView
-        android:id="@+id/myTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/str_title"
+        android:id="@+id/myTextView"
+        android:layout_width="228px"
+        android:layout_height="49px"
+        android:text="@string/str_radio_question1"
+        android:textSize="30sp"
+        android:layout_x="37px"
+        android:layout_y="3px"
+        />
+    <!--建立一個RadioGroup -->
+    <RadioGroup
+        android:id="@+id/myRadioGroup"
+        android:layout_width="137px"
+        android:layout_height="216px"
+        android:orientation="vertical"
+        android:layout_x="3px"
+        android:layout_y="54px"
         >
-    </TextView>
-    <CheckBox
-        android:id="@+id/myCheckBox1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/str_checkbox1"
-        >
-    </CheckBox>
-    <CheckBox
-        android:id="@+id/myCheckBox2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/str_checkbox2"
-        >
-    </CheckBox>
-    <CheckBox
-        android:id="@+id/myCheckBox3"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/str_checkbox3"
-        >
-    </CheckBox>
-    <TextView
-        android:id="@+id/myTextView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
-    </TextView>
-</LinearLayout>
-
+        <!--第一個RadioButton -->
+        <RadioButton
+            android:id="@+id/myRadioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tr_radio_op1"
+            />
+        <!--第二個RadioButton -->
+        <RadioButton
+            android:id="@+id/myRadioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tr_radio_op2"
+            />
+    </RadioGroup>
+</AbsoluteLayout>

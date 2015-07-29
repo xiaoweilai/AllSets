@@ -1,46 +1,93 @@
 package com.source.all;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import android.widget.Spinner;
 
 public class MainActivity extends Activity {
-    /*声明 Button、ImageView对象*/
-    private ImageView mImageView01;
-    private ImageView mImageView02;
-    private Button mButton01;
-    private Button mButton02;
-    /** Called when the activity is first created. */
-    @Override public void onCreate(Bundle savedInstanceState)
-    {
+    private static final String[] countriesStr = {"台北市", "台北县" , "台中市", "高雄市"};
+    private TextView myTextView;
+    private Spinner mySpinner;
+    private ArrayAdapter adapter;
+    Animation myAnimation;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main);
- /*取得 Button、ImageView对象*/
-        mImageView01 = (ImageView)findViewById(R.id.myImageView1);
-        mImageView02 = (ImageView)findViewById(R.id.myImageView2);
-        mButton01 = (Button) findViewById(R.id.myButton1);
-        mButton02 = (Button) findViewById(R.id.myButton2);
- /*设定ImageView底图*/
-        mImageView01.setImageDrawable(getResources(). getDrawable(R.drawable.right));
-        mImageView02.setImageDrawable(getResources(). getDrawable(R.drawable.oa));
- /*用OnClickListener事件来启动*/
-        mButton01.setOnClickListener(new Button.OnClickListener()
+        myTextView = (TextView)findViewById(R.id.myTextView);
+        mySpinner  = (Spinner)findViewById(R.id.mySpinner);
+        adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, countriesStr);
+        /* myspinner_dropdown为自定义下拉菜单样式定义在res/layout目录下 */
+        adapter.setDropDownViewResource(R.layout.myspinner_dropdown);
+        /* 将ArrayAdapter加入Spinner对象中 */
+        mySpinner.setAdapter(adapter);
+        /* 将mySpinner加入OnItemSelectedListener */
+        mySpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener()
         {
             @Override
-            public void onClick(View v)
-            {
-     /*当启动后，ImageView立刻换底图*/
-                mImageView01.setImageDrawable(getResources(). getDrawable(R.drawable.right));
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                /* 将所选mySpinner的值带入myTextView中 */
+                myTextView.setText("选择的是" + countriesStr[i]);
+                /* 将mySpinner显示 */
+                adapterView.setVisibility(View.VISIBLE);
             }
-        });
-        mButton02.setOnClickListener(new Button.OnClickListener()
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        );
+
+        /* 取得Animation定义在res/anim目录下 */
+        myAnimation  =  AnimationUtils.loadAnimation(this, R.anim.my_anim);
+        /* 将mySpinner加入OnTouchListener */
+        mySpinner.setOnTouchListener(new Spinner.OnTouchListener()
         {
             @Override
-            public void onClick(View v)
-            {
-                mImageView01.setImageDrawable(getResources(). getDrawable(R.drawable.left));
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                /* 将mySpinner执行Animation */
+                view.startAnimation(myAnimation);
+                /* 将mySpinner隐藏 */
+                view.setVisibility(View.INVISIBLE);
+                return false;
             }
         });
+
+        mySpinner.setOnFocusChangeListener(new Spinner.OnFocusChangeListener()
+        {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+
+            }
+        });
+
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -185,8 +185,9 @@
     <!--<string name="tr_radio_op2">美女</string>-->
     <!--<string name="str_radio_question1">请问你是？</string>-->
 
-    <string name="hello">Hello World, EX04_07</string>
-    <string name="app_name">EX04_07</string>
+    <!--<string name="hello">Hello World, EX04_07</string>-->
+    <!--<string name="app_name">EX04_07</string>-->
 
-
+    <string name="title">Hello World, EX04_08</string>
+    <string name="app_name">EX04_08</string>
 </resources>

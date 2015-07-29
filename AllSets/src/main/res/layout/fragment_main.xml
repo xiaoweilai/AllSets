@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<AbsoluteLayout
+    android:id="@+id/widget34"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     >
-    <!--第一個TextView -->
-    <TextView
-        android:id="@+id/myTextView"
-        android:layout_width="228px"
-        android:layout_height="49px"
-        android:text="@string/str_radio_question1"
-        android:textSize="30sp"
-        android:layout_x="37px"
-        android:layout_y="3px"
+    <!--建立第一個ImageView -->
+    <ImageView
+        android:id="@+id/myImageView1"
+        android:layout_width="320px"
+        android:layout_height="280px"
+        android:layout_x="0px"
+        android:layout_y="36px"
         />
-    <!--建立一個RadioGroup -->
-    <RadioGroup
-        android:id="@+id/myRadioGroup"
-        android:layout_width="137px"
-        android:layout_height="216px"
-        android:orientation="vertical"
-        android:layout_x="3px"
-        android:layout_y="54px"
-        >
-        <!--第一個RadioButton -->
-        <RadioButton
-            android:id="@+id/myRadioButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tr_radio_op1"
-            />
-        <!--第二個RadioButton -->
-        <RadioButton
-            android:id="@+id/myRadioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tr_radio_op2"
-            />
-    </RadioGroup>
+    <!--建立第二個ImageView -->
+    <ImageView
+        android:id="@+id/myImageView2"
+        android:layout_width="104px"
+        android:layout_height="157px"
+        android:layout_x="101px"
+        android:layout_y="119px"
+        />
+    <!--建立第一個Button -->
+    <Button
+        android:id="@+id/myButton1"
+        android:layout_width="105px"
+        android:layout_height="66px"
+        android:text="pic1"
+        android:layout_x="9px"
+        android:layout_y="356px"
+        />
+    <!--建立第二個Button -->
+    <Button
+        android:id="@+id/myButton2"
+        android:layout_width="105px"
+        android:layout_height="66px"
+        android:text="pic2"
+        android:layout_x="179px"
+        android:layout_y="356px"
+        />
 </AbsoluteLayout>

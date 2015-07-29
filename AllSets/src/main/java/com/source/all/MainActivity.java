@@ -75,7 +75,7 @@ public class MainActivity extends Activity
             /*重新设定图片的宽高*/
             i.setScaleType(ImageView.ScaleType.FIT_XY);
             /*重新设定Layout的宽高*/
-            i.setLayoutParams(new Gallery.LayoutParams(136, 88));
+            i.setLayoutParams(new Gallery.LayoutParams(136*2, 88*2));
             /*设定Gallery背景图*/
             i.setBackgroundResource(mGalleryItemBackground);
             /*传回imageView物件*/

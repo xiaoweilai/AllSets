@@ -13,10 +13,32 @@
         android:textColor="@drawable/black"
         >
     </TextView>
+    <EditText
+        android:id="@+id/myEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+    </EditText>
+    <Button
+        android:id="@+id/myButton_add"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="新增"
+        >
+    </Button>
+    <Button
+        android:id="@+id/myButton_remove"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="移除"
+        >
+    </Button>
     <Spinner
         android:id="@+id/mySpinner"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         >
     </Spinner>
+
+
 </LinearLayout>

@@ -188,6 +188,10 @@
     <!--<string name="hello">Hello World, EX04_07</string>-->
     <!--<string name="app_name">EX04_07</string>-->
 
-    <string name="title">Hello World, EX04_08</string>
-    <string name="app_name">EX04_08</string>
+    <!--<string name="title">Hello World, EX04_08</string>-->
+    <!--<string name="app_name">EX04_08</string>-->
+
+    <string name="title">可动态新增╱移除的Spinner下拉菜单</string>
+    <string name="app_name">EX04_09</string>
+
 </resources>

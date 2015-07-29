@@ -191,7 +191,13 @@
     <!--<string name="title">Hello World, EX04_08</string>-->
     <!--<string name="app_name">EX04_08</string>-->
 
-    <string name="title">可动态新增╱移除的Spinner下拉菜单</string>
-    <string name="app_name">EX04_09</string>
+    <!--<string name="title">可动态新增╱移除的Spinner下拉菜单</string>-->
+    <!--<string name="app_name">EX04_09</string>-->
+
+
+    <string name="app_name">EX04_10</string>
+    <string name="my_gallery_text_pre">这是图片</string>
+    <string name="my_gallery_text_post">号</string>
+
 
 </resources>

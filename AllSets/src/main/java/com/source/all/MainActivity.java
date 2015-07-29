@@ -1,131 +1,86 @@
 package com.source.all;
+
 import android.app.Activity;
 import android.os.Bundle;
+ /*本范例需使用到的class*/
+import android.content.Context;
+import android.content.res.TypedArray;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
-import java.util.ArrayList;
-import java.util.List;
-
-public class MainActivity extends Activity {
-    private static final String[] countriesStr = {"台北市", "台北县" , "台中市", "高雄市"};
-    private TextView myTextView;
-    private EditText myEditText;
-    private Button myButton_add;
-    private Button myButton_remove;
-    private Spinner mySpinner;
-    private ArrayAdapter adapter;
-    private List allCountries;
-
+import android.widget.BaseAdapter;
+import android.widget.Gallery;
+import android.widget.ImageView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
+public class MainActivity extends Activity
+{
+    /** Called when the activity is first created. */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main);
-        allCountries = new ArrayList();
-        for(int i = 0;i < countriesStr.length; i++)
+        /*透过findViewById取得*/
+        Gallery g = (Gallery) findViewById(R.id.mygallery);
+        /*新增一ImageAdapter并设定给Gallery对象*/
+        g.setAdapter(new ImageAdapter(this));
+        /*设定一个itemclickListener并Toast被点选图片的位置*/
+        g.setOnItemClickListener(new OnItemClickListener()
         {
-            allCountries.add(countriesStr[i]);
-        }
-        /* new ArrayAdapter物件并将allCountries传入 */
-        adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, allCountries);
-        /* myspinner_dropdown为自定义下拉菜单样式定义在res/layout目录下 */
-        adapter.setDropDownViewResource(R.layout.myspinner_dropdown);
-        /* 以findViewById()取得对象 */
-        myTextView = (TextView)findViewById(R.id.myTextView);
-        myEditText = (EditText) findViewById(R.id.myEditText);
-        myButton_add = (Button) findViewById(R.id.myButton_add);
-        myButton_remove = (Button) findViewById(R.id.myButton_remove);
-        mySpinner  = (Spinner)findViewById(R.id.mySpinner);
-        /* 将ArrayAdapter加入Spinner对象中 */
-        mySpinner.setAdapter(adapter);
-
-        /* 将myButton_add加入OnClickListener */
-        myButton_add.setOnClickListener(new Button.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-                String newCountry = myEditText.getText().toString();
-                /* 先比对新增的值是否已存在，不存在才可新增 */
-                for(int i = 0; i< adapter.getCount(); i++)
-                {
-                    if(newCountry.equals(adapter.getItem(i)))
-                    {
-                        return;
-                    }
-                }
-
-                if(!newCountry.equals(""))
-                {
-                    /* 将值新增至adapter */
-                    adapter.add(newCountry);
-                    /* 取得新增的值的位置 */
-                    int position = adapter.getPosition(newCountry);
-                    /* 将Spinner选取在新增的值的位置 */
-                    mySpinner.setSelection(position);
-                    /* 将myEditText清空 */
-                    myEditText.setText("");
-                }
-            }
-        });
-
-        /* 将myButton_remove加入OnClickListener */
-        myButton_remove.setOnClickListener(new Button.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-                if(mySpinner.getSelectedItem() != null)
-                {
-                    /* 移除mySpinner的值 */
-                    adapter.remove(mySpinner.getSelectedItem().toString());
-                    /* 将myEditText清空 */
-                    myEditText.setText("");
-                    if(adapter.getCount() == 0)
-                    {
-                         /* 将myTextView清空 */
-                        myTextView.setText("");
-                    }
-                }
-            }
-        });
-
-        /* 将mySpinner加入OnItemSelectedListener */
-        mySpinner.setOnItemSelectedListener(new Spinner.OnItemSelectedListener()
-        {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                /* 将所选mySpinner的值带入myTextView中 */
-                myTextView.setText(adapterView.getSelectedItem().toString());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
+            public void onItemClick(AdapterView parent, View v, int position, long id)
+            {
+                Toast.makeText(MainActivity.this, getString(R.string.my_gallery_text_pre) + position+ getString(R.string.my_gallery_text_post), Toast.LENGTH_SHORT).show();
+            } });
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /*改写BaseAdapter自定义一ImageAdapter class*/
+    public class ImageAdapter extends BaseAdapter
+    {
+        /*宣告变量*/
+        int mGalleryItemBackground;
+        private Context mContext;
+        /*ImageAdapter的建构子*/
+        public ImageAdapter(Context c)
+        {
+            mContext = c;
+            /* 使用在res/values/attrs.xml中的定义 * 的Gallery属性.*/
+            TypedArray a = obtainStyledAttributes(R.styleable.Gallery);
+            /*取得Gallery属性的Index id*/
+            mGalleryItemBackground = a.getResourceId( R.styleable.Gallery_android_galleryItemBackground, 0);
+            /*让对象的styleable属性能够反复使用*/
+            a.recycle();
+        }
+        /*一定要重写的方法getCount,传回图片数目*/
+        public int getCount()
+        {
+            return myImageIds.length;
+        }
+        /*一定要重写的方法getItem,传回position*/
+        public Object getItem(int position)
+        {
+            return position;
+        }
+        /*一定要重写的方法getItemId,传回position*/
+        public long getItemId(int position)
+        {
+            return position;
+        }
+        /*一定要重写的方法getView,传回一View对象*/
+        public View getView(int position, View convertView, ViewGroup parent)
+        {
+            /*产生ImageView对象*/
+            ImageView i = new ImageView(mContext);
+            /*设定图片给imageView对象*/
+            i.setImageResource(myImageIds[position]);
+            /*重新设定图片的宽高*/
+            i.setScaleType(ImageView.ScaleType.FIT_XY);
+            /*重新设定Layout的宽高*/
+            i.setLayoutParams(new Gallery.LayoutParams(136, 88));
+            /*设定Gallery背景图*/
+            i.setBackgroundResource(mGalleryItemBackground);
+            /*传回imageView物件*/
+            return i;
+        }
+        /*建构一Integer array并取得预加载Drawable的图片id*/
+        private Integer[] myImageIds = { R.drawable.photo1, R.drawable.photo2, R.drawable.photo3, R.drawable.photo4, R.drawable.photo5, R.drawable.photo6, };
+    } }
